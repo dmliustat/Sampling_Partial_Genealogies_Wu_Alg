@@ -19,7 +19,10 @@ int remove_s(long* TYPE, long* ntype, long c, long nbranch);
 void reduce_seq(long *TYPE, long *ntype, long c);
 long sample_node(long *TYPE, long *type2node, long k);
 void shuffle(long* array, size_t n);
-
+void quick_sort2(int arr[], int index[], int low, int high);
+int* sort_and_return_indices2(int arr[], int size);
+int partition2(int arr[], int index[], int low, int high);
+void swap2(int* a, int* b);
 
 void seed_set(FILE *a);
 void seed_put(FILE *a);
@@ -281,3 +284,52 @@ void shuffle(long* array, size_t n)
 	}
 }
 
+void quick_sort2(int arr[], int index[], int low, int high)
+{
+	if (low < high)
+	{
+		int pivot = partition2(arr, index, low, high);
+		quick_sort2(arr, index, low, pivot - 1);
+		quick_sort2(arr, index, pivot + 1, high);
+	}
+}
+
+int* sort_and_return_indices2(int arr[], int size)
+{
+	int* indices2 = (int*)malloc(size * sizeof(int));
+	if (indices2 == NULL)
+		return NULL;
+	// Initialize indices2 array
+	for (int i = 0; i < size; i++)
+	{
+		indices2[i] = i;
+	}
+	// Sort the array and indices2 simultaneously
+	quick_sort2(arr, indices2, 0, size - 1);
+	return indices2;
+}
+
+int partition2(int arr[], int index[], int low, int high)
+{
+	int pivot = arr[high];
+	int i = low - 1;
+	for (int j = low; j < high; j++)
+	{
+		if (arr[j] <= pivot)
+		{
+			i++;
+			swap2(&arr[i], &arr[j]);
+			swap2(&index[i], &index[j]);
+		}
+	}
+	swap2(&arr[i + 1], &arr[high]);
+	swap2(&index[i + 1], &index[high]);
+	return i + 1;
+}
+
+void swap2(int* a, int* b)
+{
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+}

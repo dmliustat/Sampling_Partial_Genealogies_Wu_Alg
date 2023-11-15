@@ -27,3 +27,11 @@ extern void reduce_seq(long* TYPE, long* ntype, long c);
 extern long sample_node(long* TYPE, long* type2node, long k);
 
 void shuffle(long* array, size_t n);
+
+void quick_sort2(int arr[], int index[], int low, int high);
+
+int* sort_and_return_indices2(int arr[], int size);
+
+int partition2(int arr[], int index[], int low, int high);
+
+void swap2(int* a, int* b);
