@@ -1,4 +1,4 @@
-# Samplin gPartial Genealogies
+# Sampling Partial Genealogies
 
 The name of the software, SPGSIS, is short for ``sampling partial genealogies using sequential importance sampling". The SPGSIS.c source file consists of the main function and the input/output functions. Our software requires two input files and generates two kinds of output files, i.e., a bunch of .trees files that store the partial genealogies and a text file with the SIS weights for each partial genealogy.
 
