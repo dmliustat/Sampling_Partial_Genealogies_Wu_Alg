@@ -101,7 +101,7 @@ int main(int argc, char *argv[]){
     
 	//positions[L] = SEQLEN;
 	/*scaled mutation and recombination rates*/
-	THETA = 4.0 * Ne * THETA * SEQLEN / (double)L;
+	THETA = 4.0 * Ne * THETA * SEQLEN;
 	RHO = 4.0 * Ne * RHO;
 	adj_rate = 1;
 
