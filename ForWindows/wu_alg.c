@@ -948,7 +948,7 @@ double calc_Wu(long* TYPE, long* ntype)
     int i,j;
     double theta;
 
-    theta =THETA * L;
+    theta =THETA;
 
 
     /*m = number of distinct haplotypes, n =number of sites + 1 (multiplicity) */
